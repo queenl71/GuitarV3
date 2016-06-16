@@ -8,7 +8,7 @@
 
 <%@ page import="com.Idao.InventoryIDao" %>
 <%@ page import="model.Guitar" %>
-   <%@ page import="util_connection.DataConnection" %>
+   <%@ page import="util_connection.DbConn" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>  
 <!DOCTYPE>

@@ -6,7 +6,7 @@
   <%@ page import="model.Builder" %>
   <%@ page import="model.Guitar" %>
    <%@ page import="model.GuitarSpec" %>
-   <%@ page import="util_connection.DataConnection" %>
+   <%@ page import="util_connection.DbConn" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE >
@@ -191,7 +191,7 @@
         
 <% 
 try{
-    Connection conn=DataConnection.getConnection();
+    Connection conn=DbConn.getConn();
    //调数据库
     String sql="select * from guitar";
 	PreparedStatement stmt=conn.prepareStatement(sql);
