@@ -1,7 +1,8 @@
 # GuitarV3
-guitar3.0
+guitar3.0<br> 
 工厂模式应用
-sqliteDAO和mysqlDAO
+# sqliteDAO和mysqlDAO
 ![index](https://github.com/queenl71/GuitarV3/blob/master/con.png)
-添加吉他
+
+## 添加吉他
 ![index](https://github.com/queenl71/GuitarV3/blob/master/add.png)
