@@ -100,10 +100,12 @@
                         <a  href="index.html"><i class="fa fa-dashboard"></i> 首页</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="ui-elements.html"><i class="fa fa-desktop"></i> 用户查询</a>
+                        <a class="fa fa-dashboard" href="search.jsp"> 用户查询</a>
                     </li>
 				
-
+                     <li>
+                        <a class="active-menu" href="add.jsp"><i class="fa fa-desktop"></i> 增加吉他</a>
+                    </li>
 
                   
                    
@@ -116,151 +118,103 @@
        
        
        
-       
-        <!-- 右侧  -->
-       <div id="page-wrapper" >
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            南湖吉他<small>用户查询</small>
+                            南湖吉他 <small>添加吉他</small>
                         </h1>
                     </div>
                 </div> 
                  <!-- /. ROW  -->
-               
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
+              <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-吉他列表                        </div>
-                        
-                       
-                       
-                        <form action="searchGuitar" method="post">
-   <label>制造商：</label>
-                        <select name="builder" id="builder" >
-                                              <option></option>
-                        <% for(int  i = 0; i<Builder.values().length;i++){%>
-                           <option value="<%=Builder.values()[i]%>"><%=Builder.values()[i]%></option>
-                                              <%} %>
-                                      </select>
-<label>型号：</label><select name="model" id="model" >
-                                            <option></option>
-                                            <option >BHSKAD</option>
-                                            <option>DQADQD</option>
-	                                        <option>FERFWF</option>
-                                      </select>
-<br><br>
-<label>类型：</label><select name="type" id="type">
-                                          <option></option>
-                                           <% for(int  i = 0; i<Type.values().length;i++){%>
-                                              <option value="<%=Type.values()[i]%>"><%=Type.values()[i]%></option>
-                                              <%} %>
-                                          </select>
-<label>背板木：</label><select name="backWood" id="backWood" >
-                                              <option></option>
-                                                 <% for(int  i = 0; i<Wood.values().length;i++){%>
-                                              <option value="<%=Wood.values()[i]%>"><%=Wood.values()[i]%></option>
-                                              <%} %>
-                                           </select>
-
-       
-        <input type="submit" name="find" id="find"  value="查询">
-
-    </form>
-    
-                        <div class="panel-body">
-                            <div class="table-responsive">
-          <table class="table table-striped table-bordered " id="">
-                                   <thead>
-	        <tr>
-	            <th>编号</th>
-	            <th>价格</th>
-	            <th>制造商</th>
-	            <th>型号</th>
-	            <th>类型</th>
-	            <th>背板木</th>
-	            <th>顶端木</th>
-	        </tr>
-	    </thead>
-	    
-	    
-                                      <tbody>
-        
-<% 
-try{
-    Connection conn=DbConn.getconn();
-   //调数据库
-    String sql="select * from guitar";
-	PreparedStatement stmt=conn.prepareStatement(sql);
-	ResultSet rs= stmt.executeQuery();
-	List<Guitar> guitars = new ArrayList<Guitar>();
-	while (rs.next()) {
-		%>
-		<tr>
-     	<td><%=rs.getString(1)%></td>
-		<td><%=rs.getDouble(2)%></td>
-		<td><%=rs.getString(3)%></td>
-		<td><%=rs.getString(4)%></td>
-		<td><%=rs.getString(5)%></td>
-		<td><%=rs.getString(6)%></td>
-		<td><%=rs.getString(7)%></td>
-		</tr>    
-	   
-		 
-	<%}
-	
-   }
-catch (Exception e) {
-	e.printStackTrace();
-}
-%>
- </tbody>
-                                </table>
-                            </div>
-                            
+                            吉他详情
                         </div>
-                        
-                        
-                   <!-- /东大  -->
-                        
-  
-  
-                        
-                        
+                        <div class="panel-body">
+                            <div class="row">
+                             
+                            
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                    <div class="form-group input-group">
+                                            <span class="input-group-addon">N</span>
+                                            <input type="text" class="form-control" placeholder="编号">
+                                        </div>
+                                      <div class="form-group input-group">
+                                            <span class="input-group-addon">¥</span>
+                                            <input type="text" class="form-control" placeholder="价格">
+                                        </div>
+                                          <div class="form-group input-group">
+                                            <span class="input-group-addon">＠</span>
+                                            <input type="text" class="form-control" placeholder="制造商">
+                                        </div>
+                                          <div class="form-group input-group">
+                                            <span class="input-group-addon">*</span>
+                                            <input type="text" class="form-control" placeholder="型号">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>材料 </label>
+                                            <input class="form-control" placeholder="背板木">
+                                        </div>
+                                         <div class="form-group">
+                                            <input class="form-control" placeholder="顶端木">
+                                        </div>
+                                        
+                                      
+                                        <div class="form-group">
+                                            <label>添加图片</label>
+                                            <input type="file">
+                                        </div>
+                                       
+                                      
+                                        <div class="form-group">
+                                            <label>类型</label>
+                                            <select class="form-control">
+                                                <option>民谣吉他</option>
+                                                <option>电音吉他</option>
+                                            </select>
+                                        </div>
+                                       
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </form>
+                                </div>
+                               
+                              
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
                     </div>
-                    <!--End Advanced Tables -->
+                    <!-- /.panel -->
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
-                <!-- /. ROW  -->
-            
-                
-           
-         
-                <!-- /. ROW  -->
+			<footer><p>Copyright &copy; 2016.</p></footer>
+			</div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
         </div>
-               <footer><p>Copyright &copy; 2016.</p></footer>
-    </div>
-        
-    </div>
-   
-   
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="js/jquery-1.10.2.js"></script>
+    <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- Bootstrap Js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-        
-        
-         <!-- Custom Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
     
-
-
-
+   
 </body>
-
 </html>
